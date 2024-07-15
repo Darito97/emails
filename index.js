@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import sendEmailMethod from "./email.js";
 
 dotenv.config();
 
@@ -21,9 +22,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.post("/sendEmail", sendEmailMethod);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
