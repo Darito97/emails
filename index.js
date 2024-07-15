@@ -13,6 +13,6 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.list(port, () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
