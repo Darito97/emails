@@ -7,7 +7,19 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+const listOfAllowedOrigins = [
+  process.env.URL1,
+  process.env.URL2,
+  process.env.URL3,
+  process.env.URL4,
+];
+
+const corsOptions = {
+  origin: [...listOfAllowedOrigins],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
